@@ -1,0 +1,141 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+<section id="inicio" class="h-screen flex items-center text-white" style="background-image: url('{% static 'images/patriportada.png' %}'); background-size: cover; background-position: center;">
+    <div class="text-center px-4 md:px-10 max-w-4xl mx-auto">
+        <h1 class="font-extrabold tracking-wide leading-tight drop-shadow-lg text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-brand-all">
+        </h1>
+    </div>
+</section>
+
+<section id="sobre-mi" class="py-20 bg-white text-negro-profundo">
+    <div class="container mx-auto px-6 md:px-12 flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/3">
+            <img src="{% static 'images/patriperfil.png' %}" alt="Patricia Alejandra Martín" class="rounded-lg shadow-2xl w-full transform hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="md:w-2/3">
+            <h2 class="text-3xl font-bold mb-4 text-dorado">Sobre mí</h2>
+            <p class="text-lg text-gray-700 leading-relaxed">
+                ¡Hola! Te cuento sobre mí…
+                <br><br>
+                Soy <strong>Patricia Alejandra Martín</strong>. Egresé como Abogada en la Universidad Nacional del Nordeste (UNNE) en el año 2011, con 23 años de edad y desde aquel momento ejerzo la profesión.
+                <br><br>
+                Agradezco a cada cliente que desde ese entonces confió en mí y a todos los colegas que me orientaron en este transitar.
+                <br><br>
+                Hoy abro las puertas de mi propio Despacho Jurídico para poner mi profesión en pos de la comunidad.
+            </p>
+        </div>
+    </div>
+</section>
+
+    <section id="servicios-legales" class="py-20 bg-negro-profundo text-white">
+    <div class="container mx-auto px-6 md:px-12">
+        <h2 class="text-3xl font-bold text-center mb-12 text-dorado">Soluciones Legales</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-5 gap-6">
+            <!-- Servicio 1 -->
+            <div class="bg-black/60 backdrop-blur-md p-4 rounded-xl border border-dorado shadow-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover-brillante">
+                <div class="text-dorado mb-4">
+                    <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+                </div>
+                <h3 class="font-bold text-xl mb-2 text-dorado">Derecho Civil</h3>
+                <p class="text-dorado/80">Contratos, sucesiones, daños y perjuicios.</p>
+            </div>
+            <!-- Servicio 2 -->
+            <div class="bg-black/60 backdrop-blur-md p-4 rounded-xl border border-dorado shadow-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover-brillante">
+                <div class="text-dorado mb-4">
+                    <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                </div>
+                <h3 class="font-bold text-xl mb-2 text-dorado">Derecho de Familia</h3>
+                <p class="text-dorado/80">Divorcios, alimentos, régimen de comunicación.</p>
+            </div>
+            <!-- Servicio 3 -->
+            <div class="bg-black/60 backdrop-blur-md p-4 rounded-xl border border-dorado shadow-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover-brillante">
+                 <div class="text-dorado mb-4">
+                    <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                </div>
+                <h3 class="font-bold text-xl mb-2 text-dorado">Defensa del Consumidor</h3>
+                <p class="text-dorado/80">Reclamos por productos o servicios defectuosos.</p>
+            </div>
+            <!-- Servicio 4 -->
+             <div class="bg-black/60 backdrop-blur-md p-4 rounded-xl border border-dorado shadow-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover-brillante">
+                <div class="text-dorado mb-4">
+                    <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 4h3m-3 4h3m-3-4h3"></path></svg>
+                </div>
+                <h3 class="font-bold text-xl mb-2 text-dorado">Asesoramiento Legal</h3>
+                <p class="text-dorado/80">Consultoría para evitar futuros litigios.</p>
+            </div>
+            <!-- Servicio 5 -->
+            <div class="bg-black/60 backdrop-blur-md p-4 rounded-xl border border-dorado shadow-lg text-center transition-transform duration-300 hover:-translate-y-2 hover:shadow-2xl hover-brillante">
+                 <div class="text-dorado mb-4">
+                     <svg class="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 17l6-6 4 4 8-8"></path></svg>
+                 </div>
+                 <h3 class="font-bold text-xl mb-2 text-dorado">Derecho Laboral</h3>
+                 <p class="text-dorado/80">Reclamos por despidos, salarios y condiciones de trabajo.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nueva sección experiencia -->
+<section id="experiencia" class="py-24 bg-gradient-to-b from-white via-gray-50 to-white">
+    <div class="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
+        <!-- Bloque de texto estilizado -->
+        <div class="bg-white/90 p-8 rounded-lg shadow-lg border-l-4 border-dorado">
+            <h4 class="text-dorado text-4xl sm:text-5xl lg:text-6xl font-brand-all font-semibold mb-4">Más de 13 Años de Experiencia</h4>
+            <div class="h-1 w-24 bg-dorado mb-6 rounded"></div>
+            <p class="text-negro-profundo mb-6 font-brand-all text-lg md:text-xl leading-relaxed max-w-xl">Desde 2011, elijo ejercer el derecho poniendo siempre en el centro a quienes buscan justicia.</p>
+        </div>
+
+        <!-- Imagen principal con borde dorado -->
+        <div class="relative md:max-w-md ml-auto">
+            <img src="{% static 'images/foto3.png' %}" alt="Patricia Alejandra Martín" class="rounded-lg shadow-xl w-full object-cover border-4 border-dorado/60">
+        </div>
+    </div>
+</section>
+
+<style>
+    .border-dorado-brillante {
+        border-color: #d4af37; /* Match the gold color of the text */
+    }
+    .hover-brillante:hover {
+        background: linear-gradient(90deg, rgba(212,175,55,0.5) 0%, rgba(212,175,55,0) 100%);
+        color: black;
+        box-shadow: 0 0 10px rgba(212,175,55,0.7);
+    }
+</style>
+
+<section id="contacto" class="py-12 bg-negro-profundo text-white">
+    <div class="container mx-auto px-4 md:px-8">
+        <div class="flex flex-wrap justify-between">
+            <!-- Info de contacto simple -->
+            <div class="w-full md:w-1/2 text-center mb-8">
+                <h2 class="text-3xl md:text-4xl font-brand-all font-semibold mb-4 text-dorado">Contacto</h2>
+                <div class="h-1 w-16 bg-dorado mx-auto mb-4 rounded"></div>
+                <div class="flex flex-col items-center space-y-3 mt-6">
+                    <a href="tel:+5493731634951" class="inline-flex items-center justify-center w-1/2 px-4 py-2 text-base font-bold text-white border border-dorado-brillante rounded-full shadow-md hover-brillante transition-all duration-300">
+                        <svg class="w-8 h-8 mr-2 hover:text-dorado-brillante" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79a15.053 15.053 0 0 0 6.59 6.59l2.2-2.2a1.003 1.003 0 0 1 1.11-.27c1.21.49 2.53.76 3.88.76.55 0 1 .45 1 1v3.5c0 .55-.45 1-1 1C10.29 22 2 13.71 2 3c0-.55.45-1 1-1H6.5c.55 0 1 .45 1 1 0 1.35.27 2.67.76 3.88.15.37.07.8-.27 1.11l-2.2 2.2z"/></svg>
+                        3731-634951
+                    </a>
+                    <a href="https://wa.me/5493731634951" target="_blank" class="inline-flex items-center justify-center w-1/2 px-4 py-2 text-base font-bold text-white border border-dorado-brillante rounded-full shadow-md hover-brillante transition-all duration-300">
+                        <svg class="w-8 h-8 mr-2 hover:text-dorado-brillante" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.52 3.48A11.94 11.94 0 0 0 12 0C5.37 0 0 5.37 0 12c0 2.11.55 4.15 1.6 5.95L0 24l6.24-1.64A11.94 11.94 0 0 0 12 24c6.63 0 12-5.37 12-12 0-3.2-1.25-6.23-3.48-8.52zM12 22c-1.85 0-3.68-.5-5.26-1.45l-.37-.22-3.69.97.98-3.68-.23-.37A9.94 9.94 0 0 1 2 12c0-5.52 4.48-10 10-10s10 4.48 10 10-4.48 10-10 10zm5.27-7.73c-.29-.15-1.71-.84-1.98-.94-.27-.1-.47-.15-.67.15-.2.29-.77.94-.95 1.13-.17.2-.35.22-.64.07-.29-.15-1.22-.45-2.33-1.43-.86-.77-1.44-1.72-1.61-2.01-.17-.29-.02-.45.13-.6.13-.13.29-.35.44-.52.15-.17.2-.29.3-.48.1-.19.05-.35-.02-.5-.07-.15-.67-1.62-.92-2.23-.24-.58-.48-.5-.67-.51h-.57c-.2 0-.52.07-.79.35-.27.29-1.04 1.02-1.04 2.48s1.07 2.87 1.22 3.07c.15.19 2.1 3.2 5.08 4.48.71.31 1.26.5 1.69.64.71.23 1.35.2 1.86.12.57-.08 1.71-.7 1.95-1.38.24-.67.24-1.25.17-1.38-.07-.13-.26-.2-.54-.35z"/></svg>
+                        WhatsApp
+                    </a>
+                    <a href="https://www.instagram.com/del.dicho.al.derecho?igsh=MWF1dHk0ZnR4YnZudQ==" target="_blank" class="inline-flex items-center justify-center w-1/2 px-4 py-2 text-base font-bold text-white border border-dorado-brillante rounded-full shadow-md hover-brillante transition-all duration-300">
+                        <svg class="w-8 h-8 mr-2 hover:text-dorado-brillante" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c-2.43 0-2.784.011-3.808.06-1.064.049-1.791.218-2.427.465a4.902 4.902 0 0 0-1.772 1.153 4.902 4.902 0 0 0-1.153 1.772c-.247.636-.416 1.363-.465 2.427C3.01 9.531 3 9.885 3 12.315s.011 2.784.06 3.808c.049 1.064.218 1.791.465 2.427a4.902 4.902 0 0 0 1.153 1.772 4.902 4.902 0 0 0 1.772 1.153c.636.247 1.363.416 2.427.465C9.531 21.99 9.885 22 12.315 22s2.784-.011 3.808-.06c1.064-.049 1.791-.218 2.427-.465a4.902 4.902 0 0 0 1.772-1.153 4.902 4.902 0 0 0 1.153-1.772c.247-.636.416-1.363.465-2.427C21.99 15.099 22 14.745 22 12.315s-.011-2.784-.06-3.808c-.049-1.064-.218-1.791-.465-2.427a4.902 4.902 0 0 0-1.153-1.772A4.902 4.902 0 0 0 18.545 2.525c-.636-.247-1.363-.416-2.427-.465C15.099 2.01 14.745 2 12.315 2zM12 7.177a5.138 5.138 0 1 0 0 10.276A5.138 5.138 0 0 0 12 7.177zm0 8.536a3.398 3.398 0 1 0 0-6.796 3.398 3.398 0 0 0 0 6.796zm6.406-8.182a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0z" clip-rule="evenodd"/></svg>
+                        Instagram
+                    </a>
+                </div>
+            </div>
+
+            <!-- Dirección y mapa -->
+            <div class="w-full md:w-1/2 text-center">
+                <h2 class="text-3xl md:text-4xl font-brand-all font-semibold mb-4 text-dorado">Dirección</h2>
+                <div class="h-1 w-16 bg-dorado mx-auto mb-4 rounded"></div>
+                <p class="text-lg font-medium text-gray-100 mb-3 italic">Calle 19 entre 0 y 00, Gral. Pinedo, Chaco</p>
+                <iframe class="w-full md:w-3/4 h-40 md:h-48 rounded-xl shadow-lg border border-dorado/50 mx-auto" loading="lazy" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d221.52405558509915!2d-61.283324099999994!3d-27.3324331!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94475fe06e9fca29%3A0x220c4dd90f40dbbc!2sZabdi%20agua%20de%20mesa!5e0!3m2!1sen!2sar!4v1750363150352!5m2!1sen!2sar"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %} 

@@ -1,0 +1,186 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patricia Alejandra Martín - Abogada</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Playfair Display for brand/nav -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }   
+        body { font-family: 'Nunito', sans-serif; }
+        h1, h2, h3, h4, h5, h6, .font-brand-all { font-family: 'Playfair Display', serif; }
+        .bg-dorado { background-color: #C8A042; }
+        .text-dorado { color: #C8A042; }
+        .bg-negro-profundo { background-color: #111111; }
+        .font-brand { font-family: 'Playfair Display', serif; }
+        /* nav underline */
+        .nav-link { position: relative; padding-bottom:4px; }
+        .nav-link::after { content:""; position:absolute; height:2px; width:0; left:0; bottom:0; background:#C8A042; transition:width 0.3s ease; }
+        .nav-link:hover::after { width:100%; }
+        .nav-link:hover { color:#C8A042; }
+        @keyframes shimmer {
+            0% { background-position: -100%; }
+            100% { background-position: 200%; }
+        }
+        .shimmer {
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.2) 50%, rgba(255,255,255,0) 100%);
+            background-size: 200% 100%;
+            animation: shimmer 2s infinite;
+        }
+        .gradient {
+            background: linear-gradient(90deg, #000000, #333333);
+            transition: background 0.5s ease;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+        nav {
+            position: relative;
+            overflow: hidden;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Smooth transitions for links and buttons */
+        a, button {
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+        }
+        a:hover, button:hover {
+            color: #C8A042;
+            transform: scale(1.05);
+        }
+
+        /* Parallax effect for background images */
+        .parallax {
+            background-attachment: fixed;
+            background-size: cover;
+        }
+
+        /* Hover effects for images */
+        img:hover {
+            filter: brightness(1.2);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+    <header id="site-header" class="fixed top-0 w-full z-20 text-white backdrop-blur-sm bg-negro-profundo md:bg-transparent py-6 px-2">
+        <nav class="w-full flex items-center justify-between px-4">
+            <div class="flex items-center">
+                <a href="#inicio">
+                    <img src="{% static 'images/logooo.png' %}" alt="Logo" class="h-14 hover:scale-105 transition-transform duration-300">
+                </a>
+                <span id="brandText" class="hidden md:inline-block ml-3 text-2xl font-bold font-brand">Dr. Patricia Alejandra Martín</span>
+            </div>
+            <!-- Desktop links -->
+            <div class="hidden md:flex items-center space-x-10 text-lg font-semibold tracking-wide font-brand">
+                <a href="#inicio" class="nav-link">Inicio</a>
+                <a href="#sobre-mi" class="nav-link">Sobre mí</a>
+                <a href="#servicios-legales" class="nav-link">Servicios</a>
+                <a href="#contacto" class="nav-link">Contacto</a>
+            </div>
+
+            <!-- Mobile hamburger -->
+            <button id="navToggle" class="md:hidden focus:outline-none">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div id="mobileMenu" class="md:hidden hidden flex flex-col items-center space-y-4 mt-4 text-lg font-brand">
+            <a href="#inicio" class="nav-link-mobile">Inicio</a>
+            <a href="#sobre-mi" class="nav-link-mobile">Sobre mí</a>
+            <a href="#servicios-legales" class="nav-link-mobile">Servicios</a>
+            <a href="#contacto" class="nav-link-mobile">Contacto</a>
+        </div>
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    <footer class="bg-negro-profundo text-white p-6">
+        <div class="container mx-auto text-center">
+            &copy; 2024 Patricia Alejandra Martín. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script>
+        // Cambiar fondo del nav al hacer scroll
+        const hdr = document.getElementById('site-header');
+        const toggleBtn = document.getElementById('navToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        toggleBtn.addEventListener('click', ()=>{
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        document.querySelectorAll('.nav-link-mobile').forEach(l=>l.addEventListener('click',()=>mobileMenu.classList.add('hidden')));
+
+        window.addEventListener('scroll', () => {
+            const show = window.scrollY > 50;
+            if (show) {
+                hdr.classList.add('bg-negro-profundo', 'shadow-md');
+                hdr.classList.remove('bg-transparent');
+                document.getElementById('brandText').classList.remove('hidden');
+            } else {
+                hdr.classList.remove('bg-negro-profundo', 'shadow-md');
+                hdr.classList.add('bg-transparent');
+                document.getElementById('brandText').classList.add('hidden');
+            }
+        });
+
+        window.addEventListener('scroll', function() {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('gradient');
+            } else {
+                nav.classList.remove('gradient');
+            }
+        });
+
+        window.addEventListener('load', function() {
+            document.body.classList.add('loaded');
+        });
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in').forEach(element => {
+            observer.observe(element);
+        });
+
+        // Apply parallax effect to sections with background images
+        document.querySelectorAll('.parallax').forEach(section => {
+            window.addEventListener('scroll', function() {
+                const offset = window.pageYOffset;
+                section.style.backgroundPositionY = offset * 0.7 + 'px';
+            });
+        });
+    </script>
+</body>
+</html> 
