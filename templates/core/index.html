@@ -3,8 +3,7 @@
 
 {% block content %}
 <section id="inicio" class="h-screen flex items-center text-white relative">
-    <img src="{% static 'images/patriportada.png' %}" alt="" class="absolute top-0 left-0 w-full h-full object-cover">
-    <div class="absolute bottom-0 left-0 right-0 h-1/6.5 bg-gradient-to-b from-transparent to-white"></div>
+    <img src="{% static 'images/patriportada.png' %}" alt="" class="absolute top-0 left-0 w-full h-full object-cover no-hover-effect">
     <div class="text-center px-4 md:px-10 max-w-4xl mx-auto relative z-10">
         <h1 class="font-extrabold tracking-wide leading-tight drop-shadow-lg text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-brand-all">
         </h1>
@@ -12,21 +11,58 @@
 </section>
 
 <section id="sobre-mi" class="py-10 md:py-20 bg-white text-negro-profundo">
-    <div class="container mx-auto px-4 md:px-12 flex flex-col md:flex-row items-center gap-6 md:gap-12">
-        <div class="md:w-1/3 w-full">
-            <img src="{% static 'images/patriperfil.png' %}" alt="Patricia Alejandra Martín" class="rounded-lg shadow-2xl w-full transform hover:scale-105 transition-transform duration-300">
+    <!-- Desktop version -->
+    <div class="hidden md:block">
+        <div class="container mx-auto px-4 md:px-12 flex flex-col md:flex-row items-center gap-6 md:gap-12">
+            <div class="md:w-1/3 w-full">
+                <img src="{% static 'images/patriperfil.png' %}" alt="Patricia Alejandra Martín" class="rounded-lg shadow-2xl w-full transform hover:scale-105 transition-transform duration-300">
+            </div>
+            <div class="md:w-2/3 w-full">
+                <h2 class="text-2xl md:text-3xl font-bold mb-4 text-dorado">Sobre mí</h2>
+                <p class="text-base md:text-lg text-gray-700 leading-relaxed">
+                    ¡Hola! Te cuento sobre mí…
+                    <br><br>
+                    Soy <strong>Patricia Alejandra Martín</strong>. Egresé como Abogada en la Universidad Nacional del Nordeste (UNNE) en el año 2011, con 23 años de edad y desde aquel momento ejerzo la profesión.
+                    <br><br>
+                    Agradezco a cada cliente que desde ese entonces confió en mí y a todos los colegas que me orientaron en este transitar.
+                    <br><br>
+                    Hoy abro las puertas de mi propio Despacho Jurídico para poner mi profesión en pos de la comunidad.
+                </p>
+            </div>
         </div>
-        <div class="md:w-2/3 w-full">
-            <h2 class="text-2xl md:text-3xl font-bold mb-4 text-dorado">Sobre mí</h2>
-            <p class="text-base md:text-lg text-gray-700 leading-relaxed">
-                ¡Hola! Te cuento sobre mí…
-                <br><br>
-                Soy <strong>Patricia Alejandra Martín</strong>. Egresé como Abogada en la Universidad Nacional del Nordeste (UNNE) en el año 2011, con 23 años de edad y desde aquel momento ejerzo la profesión.
-                <br><br>
-                Agradezco a cada cliente que desde ese entonces confió en mí y a todos los colegas que me orientaron en este transitar.
-                <br><br>
-                Hoy abro las puertas de mi propio Despacho Jurídico para poner mi profesión en pos de la comunidad.
-            </p>
+    </div>
+
+    <!-- Mobile Simple Version -->
+    <div class="md:hidden">
+        <div class="container mx-auto px-6 py-8">
+            <!-- Title -->
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-dorado font-brand mb-4">Sobre mí</h2>
+                <div class="w-20 h-0.5 bg-dorado mx-auto"></div>
+            </div>
+
+                         <!-- Content Card -->
+             <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                 <!-- Text Content -->
+                 <div class="text-center space-y-6">
+                     <div class="text-gray-700 leading-relaxed space-y-4">
+                         <p class="text-lg">¡Hola! Te cuento sobre mí…</p>
+                         
+                         <p>Egresé como Abogada en la Universidad Nacional del Nordeste (UNNE) en el año 2011, con 23 años de edad y desde aquel momento ejerzo la profesión con dedicación y compromiso.</p>
+                         
+                         <p>Agradezco profundamente a cada cliente que ha confiado en mi trabajo y a todos los colegas que me han orientado en este camino profesional.</p>
+                         
+                         <!-- Photo -->
+                         <div class="py-4">
+                             <div class="w-48 mx-auto">
+                                 <img src="{% static 'images/patriperfil.png' %}" alt="Patricia Alejandra Martín" class="rounded-2xl shadow-md w-full object-cover">
+                             </div>
+                         </div>
+                         
+                         <p class="text-lg font-medium text-dorado">Hoy abro las puertas de mi propio Despacho Jurídico para poner toda mi experiencia al servicio de la comunidad.</p>
+                     </div>
+                 </div>
+             </div>
         </div>
     </div>
 </section>
@@ -80,18 +116,47 @@
 </section>
 
 <!-- Nueva sección experiencia -->
-<section id="experiencia" class="py-24 bg-gradient-to-b from-white via-gray-50 to-white">
-    <div class="container mx-auto px-6 md:px-12 grid md:grid-cols-2 gap-12 items-center">
-        <!-- Bloque de texto estilizado -->
-        <div class="bg-white/90 p-8 rounded-lg shadow-lg border-l-4 border-dorado">
-            <h4 class="text-dorado text-4xl sm:text-5xl lg:text-6xl font-brand-all font-semibold mb-4">Más de 13 Años de Experiencia</h4>
-            <div class="h-1 w-24 bg-dorado mb-6 rounded"></div>
-            <p class="text-negro-profundo mb-6 font-brand-all text-lg md:text-xl leading-relaxed max-w-xl">Desde 2011, elijo ejercer el derecho poniendo siempre en el centro a quienes buscan justicia.</p>
+<section id="experiencia" class="py-20 bg-gradient-to-b from-white via-gray-50 to-white">
+    <div class="container mx-auto px-6 md:px-12">
+        <!-- Vista Mobile -->
+        <div class="md:hidden">
+            <!-- Título separado arriba -->
+            <div class="text-center mb-12">
+                <h4 class="text-dorado text-3xl font-brand-all font-semibold mb-4">Más de 13 Años de Experiencia</h4>
+                <div class="h-1 w-24 bg-dorado mx-auto rounded"></div>
+            </div>
+
+            <!-- Contenido en línea horizontal -->
+            <div class="flex flex-row items-stretch gap-4">
+                <!-- Bloque de texto más angosto a la izquierda -->
+                <div class="w-2/5">
+                    <div class="bg-white/90 p-6 rounded-lg shadow-lg border-l-4 border-dorado h-full flex items-center">
+                        <p class="text-negro-profundo font-brand-all text-sm leading-relaxed">Desde 2011, elijo ejercer el derecho poniendo siempre en el centro a quienes buscan justicia.</p>
+                    </div>
+                </div>
+
+                <!-- Imagen más grande a la derecha -->
+                <div class="w-3/5">
+                    <div class="w-full h-full">
+                        <img src="{% static 'images/foto3.png' %}" alt="Patricia Alejandra Martín" class="rounded-lg shadow-lg w-full h-full object-cover border-2 border-dorado/60">
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <!-- Imagen principal con borde dorado -->
-        <div class="relative md:max-w-md ml-auto">
-            <img src="{% static 'images/foto3.png' %}" alt="Patricia Alejandra Martín" class="rounded-lg shadow-xl w-full object-cover border-4 border-dorado/60">
+        <!-- Vista Desktop (original) -->
+        <div class="hidden md:grid md:grid-cols-2 gap-12 items-center">
+            <!-- Bloque de texto estilizado -->
+            <div class="bg-white/90 p-8 rounded-lg shadow-lg border-l-4 border-dorado">
+                <h4 class="text-dorado text-4xl sm:text-5xl lg:text-6xl font-brand-all font-semibold mb-4">Más de 13 Años de Experiencia</h4>
+                <div class="h-1 w-24 bg-dorado mb-6 rounded"></div>
+                <p class="text-negro-profundo mb-6 font-brand-all text-lg md:text-xl leading-relaxed max-w-xl">Desde 2011, elijo ejercer el derecho poniendo siempre en el centro a quienes buscan justicia.</p>
+            </div>
+
+            <!-- Imagen principal con borde dorado -->
+            <div class="relative md:max-w-md ml-auto">
+                <img src="{% static 'images/foto3.png' %}" alt="Patricia Alejandra Martín" class="rounded-lg shadow-xl w-full object-cover border-4 border-dorado/60">
+            </div>
         </div>
     </div>
 </section>

@@ -21,13 +21,22 @@
         h1, h2, h3, h4, h5, h6, .font-brand-all { font-family: 'Playfair Display', serif; }
         .bg-dorado { background-color: #C8A042; }
         .text-dorado { color: #C8A042; }
+        .border-dorado { border-color: #C8A042; }
+        .hover\:bg-dorado:hover { background-color: #C8A042; }
+        .hover\:text-black:hover { color: #000000; }
         .bg-negro-profundo { background-color: #111111; }
         .font-brand { font-family: 'Playfair Display', serif; }
         /* nav underline */
-        .nav-link { position: relative; padding-bottom:4px; }
+        .nav-link {
+            color: #ffffff;
+            padding: 0 15px;
+            transition: color 0.3s ease;
+        }
         .nav-link::after { content:""; position:absolute; height:2px; width:0; left:0; bottom:0; background:#C8A042; transition:width 0.3s ease; }
         .nav-link:hover::after { width:100%; }
-        .nav-link:hover { color:#C8A042; }
+        .nav-link:hover {
+            color: #C8A042;
+        }
         @keyframes shimmer {
             0% { background-position: -100%; }
             100% { background-position: 200%; }
@@ -46,6 +55,11 @@
             top: 0;
             left: 0;
             z-index: -1;
+        }
+        @keyframes fade-sweep {
+            0% { background-position: 0%; opacity: 0.5; }
+            50% { background-position: 50%; opacity: 0.7; }
+            100% { background-position: 100%; opacity: 0.5; }
         }
         nav {
             position: relative;
@@ -76,7 +90,7 @@
         }
 
         /* Hover effects for images */
-        img:hover {
+        img:not(.no-hover-effect):hover {
             filter: brightness(1.2);
             transform: scale(1.05);
         }
@@ -86,16 +100,47 @@
             transform: rotate(360deg);
             transition: transform 0.6s ease-in-out;
         }
+
+        nav {
+            padding: 1px 0;
+            transition: padding 0.3s ease;
+        }
+
+        nav.shrink {
+            padding: 1px 0;
+        }
+
+        @keyframes light-sweep {
+            0% { background-position: -100%; }
+            100% { background-position: 200%; }
+        }
+
+        @media (max-width: 768px) {
+            
+            .nav-link-mobile {
+                display: block;
+                padding: 10px 0;
+                margin: 5px 0;
+                color: #ffffff;
+                text-decoration: none;
+                text-align: left;
+                width: 100%;
+            }
+            
+            main {
+                padding-top: 60px;
+            }
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
-    <header id="site-header" class="fixed top-0 w-full z-20 text-white bg-negro-profundo py-6 px-2">
-        <nav class="w-full flex items-center justify-between px-4">
+    <nav class="fixed top-0 w-full z-20 text-white bg-negro-profundo py-3 px-2">
+        <div class="w-full flex items-center justify-between px-4">
             <div class="flex items-center">
                 <a href="#inicio">
                     <img src="{% static 'images/logooo.png' %}" alt="Logo" class="h-14 hover:scale-105 transition-transform duration-300 rotate-logo">
                 </a>
-                <span id="brandText" class="hidden lg:inline-block ml-3 text-xl font-bold font-brand">Dr. Patricia Alejandra Martín</span>
+                <span id="brandText" class="ml-3 text-lg md:text-xl font-bold font-brand text-dorado">Dra. Patricia A. Martín</span>
             </div>
             <!-- Desktop links -->
             <div class="hidden md:flex items-center space-x-10 text-lg font-semibold tracking-wide font-brand">
@@ -106,33 +151,33 @@
             </div>
 
             <!-- Mobile hamburger -->
-            <button id="navToggle" class="md:hidden focus:outline-none">
+            <button id="navToggle" class="md:hidden focus:outline-none text-dorado">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
                 </svg>
             </button>
-        </nav>
+        </div>
 
         <!-- Mobile menu -->
-        <div id="mobileMenu" class="md:hidden hidden flex flex-col items-center space-y-2 mt-4 text-base font-brand">
+        <div id="mobileMenu" class="md:hidden hidden flex flex-col items-start space-y-2 mt-4 text-base font-brand px-4">
             <a href="#inicio" class="nav-link-mobile">Inicio</a>
             <a href="#sobre-mi" class="nav-link-mobile">Sobre mí</a>
             <a href="#servicios-legales" class="nav-link-mobile">Servicios</a>
             <a href="#contacto" class="nav-link-mobile">Contacto</a>
         </div>
-    </header>
+    </nav>
     <main>
         {% block content %}{% endblock %}
     </main>
     <footer class="bg-negro-profundo text-white p-6">
         <div class="container mx-auto text-center">
-            &copy; 2024 Patricia Alejandra Martín. Todos los derechos reservados.
+            &copy; 2025 Patricia Alejandra Martín. Todos los derechos reservados.
         </div>
     </footer>
 
     <script>
         // Cambiar fondo del nav al hacer scroll
-        const hdr = document.getElementById('site-header');
+        const nav = document.querySelector('nav');
         const toggleBtn = document.getElementById('navToggle');
         const mobileMenu = document.getElementById('mobileMenu');
 
@@ -143,24 +188,11 @@
         document.querySelectorAll('.nav-link-mobile').forEach(l=>l.addEventListener('click',()=>mobileMenu.classList.add('hidden')));
 
         window.addEventListener('scroll', () => {
-            const show = window.scrollY > 50;
-            if (show) {
-                hdr.classList.add('bg-negro-profundo', 'shadow-md');
-                hdr.classList.remove('bg-transparent');
-                document.getElementById('brandText').classList.add('hidden');
-            } else {
-                hdr.classList.remove('bg-negro-profundo', 'shadow-md');
-                hdr.classList.add('bg-transparent');
-                document.getElementById('brandText').classList.add('hidden');
-            }
-        });
-
-        window.addEventListener('scroll', function() {
             const nav = document.querySelector('nav');
             if (window.scrollY > 50) {
-                nav.classList.add('gradient');
+                nav.classList.add('shrink');
             } else {
-                nav.classList.remove('gradient');
+                nav.classList.remove('shrink');
             }
         });
 
