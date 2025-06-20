@@ -80,16 +80,22 @@
             filter: brightness(1.2);
             transform: scale(1.05);
         }
+
+        /* Rotate animation for logo */
+        .rotate-logo:hover {
+            transform: rotate(360deg);
+            transition: transform 0.6s ease-in-out;
+        }
     </style>
 </head>
 <body class="bg-white text-gray-800">
-    <header id="site-header" class="fixed top-0 w-full z-20 text-white backdrop-blur-sm bg-negro-profundo md:bg-transparent py-6 px-2">
+    <header id="site-header" class="fixed top-0 w-full z-20 text-white bg-negro-profundo py-6 px-2">
         <nav class="w-full flex items-center justify-between px-4">
             <div class="flex items-center">
                 <a href="#inicio">
-                    <img src="{% static 'images/logooo.png' %}" alt="Logo" class="h-14 hover:scale-105 transition-transform duration-300">
+                    <img src="{% static 'images/logooo.png' %}" alt="Logo" class="h-14 hover:scale-105 transition-transform duration-300 rotate-logo">
                 </a>
-                <span id="brandText" class="hidden md:inline-block ml-3 text-2xl font-bold font-brand">Dr. Patricia Alejandra Martín</span>
+                <span id="brandText" class="hidden lg:inline-block ml-3 text-xl font-bold font-brand">Dr. Patricia Alejandra Martín</span>
             </div>
             <!-- Desktop links -->
             <div class="hidden md:flex items-center space-x-10 text-lg font-semibold tracking-wide font-brand">
@@ -108,7 +114,7 @@
         </nav>
 
         <!-- Mobile menu -->
-        <div id="mobileMenu" class="md:hidden hidden flex flex-col items-center space-y-4 mt-4 text-lg font-brand">
+        <div id="mobileMenu" class="md:hidden hidden flex flex-col items-center space-y-2 mt-4 text-base font-brand">
             <a href="#inicio" class="nav-link-mobile">Inicio</a>
             <a href="#sobre-mi" class="nav-link-mobile">Sobre mí</a>
             <a href="#servicios-legales" class="nav-link-mobile">Servicios</a>
@@ -141,7 +147,7 @@
             if (show) {
                 hdr.classList.add('bg-negro-profundo', 'shadow-md');
                 hdr.classList.remove('bg-transparent');
-                document.getElementById('brandText').classList.remove('hidden');
+                document.getElementById('brandText').classList.add('hidden');
             } else {
                 hdr.classList.remove('bg-negro-profundo', 'shadow-md');
                 hdr.classList.add('bg-transparent');
@@ -180,6 +186,12 @@
                 const offset = window.pageYOffset;
                 section.style.backgroundPositionY = offset * 0.7 + 'px';
             });
+        });
+
+        // Apply fade-in effect to all sections
+        document.querySelectorAll('section').forEach(section => {
+            section.classList.add('fade-in');
+            observer.observe(section);
         });
     </script>
 </body>
